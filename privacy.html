@@ -25,32 +25,49 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="sub">MoodCap: AI Mood Captions · Last updated 16 August 2026</p>
-<p class="lede"><strong>MoodCap keeps almost everything on your device. The one exception:
-the photo you choose is sent, once, to our AI provider to write your caption — and is never
-stored by us, never linked to you, and never used for advertising or tracking.</strong></p>
-<h2>Your photos</h2>
-<p>When you generate a card, the photo is transmitted securely to Anthropic&rsquo;s API,
-which writes the caption and returns it. MoodCap has no servers and keeps no copy;
-the request carries no account, name, or identifier, so the photo is not linked to
-your identity. Anthropic may retain API inputs briefly for abuse prevention under its
-<a href="https://www.anthropic.com/legal/privacy">privacy policy</a>, and does not use
-them to train models. Finished cards are saved only where you choose (your photo
-library or the share sheet).</p>
+<p class="sub">MoodCap: AI Mood Captions · Last updated 27 August 2026</p>
+<p class="lede"><strong>MoodCap keeps as much as it can on your device. Two things leave it, and only
+when you choose cloud captions: the photo you picked, sent once to write its caption and never
+stored; and an anonymous device code that keeps count of your free and purchased captions.
+Nothing is linked to your identity, and nothing is used for advertising or tracking.</strong></p>
+<h2>Two ways to write a caption</h2>
+<p><strong>On-device.</strong> On iPhones that support Apple Intelligence, captions can be written
+entirely on the phone. In that mode nothing is transmitted at all.</p>
+<p><strong>Cloud.</strong> Cloud captions are off until you allow them in the app. When you do, each
+photo you choose is sent securely to our server, which passes it to Anthropic&rsquo;s Claude API to
+write the caption and returns the result. Neither our server nor Anthropic stores the photo:
+our server holds it only in memory for the duration of that one request, and Anthropic may
+retain API inputs briefly for abuse prevention under its
+<a href="https://www.anthropic.com/legal/privacy">privacy policy</a> and does not use them to
+train models. Our server runs on Cloudflare&rsquo;s infrastructure, which relays the request
+under its <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>. Finished cards
+are saved only where you choose (your photo library or the share sheet).</p>
+<h2>The device code and your caption balance</h2>
+<p>To count free captions and credit purchases without an account, the app generates a random
+code and stores it in the device keychain. Our server keeps, against that code only, how many
+captions you have used today, how many credits you hold, and the Apple transaction identifiers
+of packs you have bought (so a purchase is credited exactly once). The code is not your name,
+email, Apple ID, advertising identifier or any hardware serial, and we have no way to connect it
+to you. No photo is ever stored with it.</p>
+<h2>Purchases</h2>
+<p>Caption packs are sold through Apple&rsquo;s in-app purchase system. Apple handles payment; we
+never see your payment details. The signed receipt Apple issues is sent to our server to add
+the credits to your balance.</p>
 <h2>What stays on your device</h2>
-<p>Preferences and the daily free-card counter live in the app&rsquo;s own private storage.
-They never leave your device and are removed when you delete the app.</p>
+<p>Preferences, your cloud-caption choice and the last balance shown live in the app&rsquo;s own
+private storage and are removed when you delete the app. The device code in the keychain can
+survive reinstalling, which is what lets your purchased credits survive too.</p>
 <h2>What the app does not do</h2>
 <ul>
   <li>No accounts, sign-in or registration</li>
   <li>No analytics, telemetry or crash reporting</li>
   <li>No advertising and no advertising identifiers</li>
-  <li>No tracking, and no photo storage &mdash; captioning is the only transmission</li>
+  <li>No tracking, and no photo storage &mdash; captioning is the only time a photo is transmitted</li>
 </ul>
 <h2>Children</h2>
 <p>MoodCap has no accounts and no way to know who its users are; photos are processed anonymously and never stored.</p>
 <h2>Changes</h2>
-<p>If a future version collects anything, this policy will be updated before that
+<p>If a future version collects anything more, this policy will be updated before that
 version is released.</p>
 <h2>Contact</h2><p>Questions: <a href="mailto:richohios@gmail.com">richohios@gmail.com</a></p>
 <footer>© 2026 MoodCap: AI Mood Captions. All rights reserved.</footer>
