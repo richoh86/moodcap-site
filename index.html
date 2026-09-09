@@ -3,32 +3,372 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MoodCap: AI Mood Captions</title>
+<title>MoodCap: Vibe Camera &amp; Diary</title>
+<meta name="description" content="Your camera reads the room before you press the shutter. MoodCap shows the mood live, writes the one line behind the face, and keeps every card in a private diary that turns each month into a colour palette.">
+<link rel="canonical" href="https://richoh86.github.io/moodcap-site/">
+<link rel="alternate" hreflang="en" href="https://richoh86.github.io/moodcap-site/">
+<link rel="alternate" hreflang="ko" href="https://richoh86.github.io/moodcap-site/ko/">
+<link rel="alternate" hreflang="x-default" href="https://richoh86.github.io/moodcap-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MoodCap">
+<meta property="og:title" content="MoodCap: Vibe Camera &amp; Diary">
+<meta property="og:description" content="See the mood before you press the shutter, then watch a month of them turn into one colour palette. Free every day, unlimited on-device with Apple Intelligence.">
+<meta property="og:url" content="https://richoh86.github.io/moodcap-site/">
+<meta property="og:image" content="https://richoh86.github.io/moodcap-site/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MoodCap: Vibe Camera &amp; Diary">
+<meta name="twitter:description" content="See the mood before you press the shutter, then watch a month of them turn into one colour palette.">
+<meta name="twitter:image" content="https://richoh86.github.io/moodcap-site/assets/og.jpg">
+<meta name="theme-color" content="#14120F">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
-  :root { color-scheme: light dark;
-    --ink:#1c1a22; --dim:#6c6577; --bg:#fff; --card:#f6f4f9; --line:#e3dfe9; --accent:#7a3ea8; }
-  @media (prefers-color-scheme: dark) {
-    :root { --ink:#ece9f1; --dim:#a49cb0; --bg:#17141d; --card:#231f2b; --line:#37303f; --accent:#c79bee; }
+  /* Brand values come from Sources/App/BrandTheme.swift — ink #14120F,
+     raised surface #221E19, subtitle yellow #F5C84B. */
+  :root {
+    color-scheme: dark light;
+    --ink: #14120F;
+    --raised: #221E19;
+    --line: rgba(255, 255, 255, 0.12);
+    --text: #ffffff;
+    --dim: rgba(255, 255, 255, 0.72);
+    --accent: #F5C84B;
+    --accent-ink: #14120F;
+    --link: #F5C84B;
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
   }
-  body { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; background: var(--bg);
-    color: var(--ink); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  h1 { font-size: 2rem; margin: 0 0 .35rem; letter-spacing: -.02em; }
-  h2 { font-size: 1.1rem; margin: 2.2rem 0 .6rem; }
-  .sub { color: var(--dim); margin: 0 0 2rem; }
-  .lede { background: var(--card); border: 1px solid var(--line); border-radius: .7rem;
-    padding: 1rem 1.15rem; margin: 0 0 2rem; }
-  ul { padding-left: 1.15rem; } li { margin: .3rem 0; }
-  footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
-    color: var(--dim); font-size: .9rem; }
-  a { color: var(--accent); }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ink: #FBF8F3;
+      --raised: #FFFFFF;
+      --line: rgba(20, 18, 15, 0.14);
+      --text: #14120F;
+      --dim: #55503F;
+      --accent: #14120F;
+      --accent-ink: #F5C84B;
+      --link: #8A5B00;
+      --shadow: 0 14px 30px rgba(20, 18, 15, 0.14);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    overflow-wrap: break-word;
+  }
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--link); }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+
+  header.bar {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--ink);
+    z-index: 5;
+  }
+  .bar .wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 60px;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .langs { display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; }
+  .langs a { color: var(--dim); text-decoration: none; padding: 0.2rem 0.1rem; }
+  .langs a[aria-current="page"] { color: var(--text); font-weight: 600; }
+  .langs a:hover { color: var(--text); }
+
+  .store {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .store.big { padding: 0.85rem 1.6rem; font-size: 1.05rem; }
+  .store:hover { filter: brightness(1.08); }
+
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); line-height: 1.15; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .kicker { color: var(--accent); font-weight: 600; margin: 0 0 0.75rem; letter-spacing: 0.02em; }
+  .lede { color: var(--dim); font-size: 1.1rem; margin: 0 0 1.5rem; max-width: 34rem; }
+  .meta { color: var(--dim); font-size: 0.85rem; margin: 0.9rem 0 0; }
+  .hero-card img { border-radius: 20px; box-shadow: var(--shadow); margin: 0 auto; }
+
+  section { padding: 2.25rem 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.35rem; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
+  h3 { font-size: 1.05rem; margin: 0 0 0.4rem; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .three article {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.3rem;
+  }
+  .three p { color: var(--dim); margin: 0; font-size: 0.95rem; }
+  .step { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; }
+
+  @media (prefers-color-scheme: light) {
+    .kicker, .step { color: var(--link); }
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .gallery figure { margin: 0; }
+  .gallery img { border-radius: 16px; box-shadow: var(--shadow); width: 100%; }
+  .gallery figcaption {
+    color: var(--dim);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .note { color: var(--dim); font-size: 0.9rem; margin: 1.1rem 0 0; }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .facts div {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+  .facts p { color: var(--dim); margin: 0.35rem 0 0; font-size: 0.95rem; }
+  .cta { text-align: center; padding: 2.5rem 0 3rem; border-top: 1px solid var(--line); }
+  .cta p { color: var(--dim); margin: 0 0 1.25rem; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem 0 3rem;
+    color: var(--dim);
+    font-size: 0.85rem;
+  }
+  footer p { margin: 0.4rem 0; }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 1.75rem; padding-top: 2rem; }
+    .three { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr; }
+    .hero-card img { max-width: 260px; }
+  }
+  @media (max-width: 640px) {
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding-bottom: 0.75rem;
+    }
+    .gallery figure { flex: 0 0 62vw; scroll-snap-align: start; }
+  }
 </style>
 </head>
 <body>
-<h1>MoodCap: AI Mood Captions</h1>
-<p class="sub">Your face already said it. MoodCap writes it down.</p>
-<p class="lede">TODO — a short description, a screenshot or two, and an App Store
-link once the app is live.</p>
-<footer><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a>
- · © 2026 MoodCap: AI Mood Captions. All rights reserved.</footer>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MOODCAP</a>
+    <nav class="langs" aria-label="Language">
+      <a href="index.html" aria-current="page" lang="en">EN</a>
+      <span aria-hidden="true">·</span>
+      <a href="ko/index.html" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+    <a class="store" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">App&nbsp;Store</a>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Live mood meter, daily journal</p>
+        <h1>MoodCap: Vibe Camera &amp; Diary</h1>
+        <p class="lede">Point the camera and the mood of the moment shows up live on the
+          preview; press the shutter and MoodCap writes the one line behind the face, then
+          keeps every card in a private diary that turns each month into a colour palette.</p>
+        <a class="store big" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">Download on the App Store</a>
+        <p class="meta">iPhone · iOS 17 or later · free every day · no account, no sign-up</p>
+      </div>
+      <div class="hero-card">
+        <picture>
+          <source srcset="assets/cards/en/solo-1.webp" type="image/webp">
+          <img src="assets/cards/en/solo-1.jpg" width="540" height="960"
+               alt="A MoodCap card. Mood: quiet confidence. The line reads &ldquo;This lighting is doing half the work and I'll allow it.&rdquo; with #goldenhour #unbothered #mainrole and an energy score of 60%.">
+        </picture>
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>One photo becomes today. Thirty of them become a picture of your month.</h2>
+      <div class="three">
+        <article>
+          <p class="step">01</p>
+          <h3>Live vibe camera</h3>
+          <p>Point the camera and watch the energy meter fill and the mood colour shift, in
+            real time, read entirely on your device. Switch on Auto and MoodCap takes the shot
+            at your peak, so you stop guessing the timing.</p>
+        </article>
+        <article>
+          <p class="step">02</p>
+          <h3>The card</h3>
+          <p>Then AI writes what that face is actually thinking &mdash; one line, laid out on a
+            9:16 card built for your story, with a mood, three hashtags and an energy score.
+            Me today, your pet, or the two of you with a chemistry score.</p>
+        </article>
+        <article>
+          <p class="step">03</p>
+          <h3>Mood timeline</h3>
+          <p>Every card is saved on your phone into a private diary. Each month becomes a
+            palette &mdash; one colour square per day &mdash; so a whole month of moods fits on
+            a single screen. Nothing is uploaded: the timeline never leaves your phone.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cards">
+    <div class="wrap">
+      <h2>Real cards, straight out of the app</h2>
+      <div class="gallery">
+        <figure>
+          <picture>
+            <source srcset="assets/cards/en/solo-2.webp" type="image/webp">
+            <img loading="lazy" src="assets/cards/en/solo-2.jpg" width="540" height="960"
+                 alt="Mood: low-effort main character. &ldquo;Did nothing all day and somehow still came out looking like this.&rdquo;">
+          </picture>
+          <figcaption>Me today</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/cards/en/pet-1.webp" type="image/webp">
+            <img loading="lazy" src="assets/cards/en/pet-1.jpg" width="540" height="960"
+                 alt="Mood: negotiating. &ldquo;I sat. Where is the treat. I sat.&rdquo;">
+          </picture>
+          <figcaption>Pet</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/cards/en/duo-1.webp" type="image/webp">
+            <img loading="lazy" src="assets/cards/en/duo-1.jpg" width="540" height="960"
+                 alt="Mood: co-conspirators. &ldquo;We rehearsed this face and it still came out wrong.&rdquo; with a chemistry score of 70%.">
+          </picture>
+          <figcaption>Us two</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/cards/en/pet-2.webp" type="image/webp">
+            <img loading="lazy" src="assets/cards/en/pet-2.jpg" width="540" height="960"
+                 alt="Mood: professionally asleep. &ldquo;Fourteen hours of sleep, purely so nothing gets done today.&rdquo;">
+          </picture>
+          <figcaption>Pet</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/cards/en/duo-2.webp" type="image/webp">
+            <img loading="lazy" src="assets/cards/en/duo-2.jpg" width="540" height="960"
+                 alt="Mood: same brain, two faces. &ldquo;One of you started laughing and now neither of you can stop.&rdquo;">
+          </picture>
+          <figcaption>Us two</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/cards/en/palette.webp" type="image/webp">
+            <img loading="lazy" src="assets/cards/en/palette.jpg" width="540" height="960"
+                 alt="The monthly palette card for August 2026: 27 cards, one colour square per day, top moods quiet confidence, negotiating and co-conspirators, average energy 78%.">
+          </picture>
+          <figcaption>Monthly palette</figcaption>
+        </figure>
+      </div>
+      <p class="note">The lines are not generic. Each one is written from what is actually in
+        your photo &mdash; the messy bun, the third coffee, the guilty dog face. Pick your caption
+        language in Settings: 39 to choose from, your phone&rsquo;s language by default.</p>
+    </div>
+  </section>
+
+  <section id="free">
+    <div class="wrap">
+      <h2>Free every day, and private by default</h2>
+      <div class="facts">
+        <div>
+          <h3>Three cloud cards every day, free</h3>
+          <p>Plus 10 welcome credits the moment you install. Every share you complete earns one
+            more, up to three a day, and a reroll is free twice on every photo. Want more?
+            Credit packs of 30, 100 or 300 are one tap away. No account, no sign-up.</p>
+        </div>
+        <div>
+          <h3>Unlimited on-device with Apple Intelligence</h3>
+          <p>On an iPhone with Apple Intelligence, MoodCap writes the line on the device itself:
+            unlimited, free, and the photo never leaves your phone.</p>
+        </div>
+        <div>
+          <h3>Your photos are not stored</h3>
+          <p>A photo is sent only to write its line, and never kept &mdash; cloud captions stay
+            off until you turn them on. Read the <a href="privacy.html">privacy policy</a>.</p>
+        </div>
+        <div>
+          <h3>The timeline never leaves the phone</h3>
+          <p>The live mood reading, your diary and every on-device caption stay on your iPhone.
+            Nothing is uploaded, and there is nothing to sign in to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap">
+      <p>See the mood before you press the shutter.</p>
+      <a class="store big" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">Download on the App Store</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a> ·
+      <a href="ko/index.html" lang="ko" hreflang="ko">한국어</a> ·
+      © 2026 MoodCap. All rights reserved.</p>
+    <p>MoodCap is for fun, not a psychological or medical assessment.</p>
+  </div>
+</footer>
+
 </body>
 </html>
