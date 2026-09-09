@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>무드캡 — 속마음 카메라 일기</title>
+<meta name="description" content="카메라를 켜는 순간 지금 이 분위기가 화면 위에 뜹니다. 무드캡은 그 얼굴이 진짜 하고 있는 말을 한 줄로 써 주고, 카드를 폰 안에만 쌓아 한 달을 색 팔레트 한 장으로 만들어 줍니다.">
+<link rel="canonical" href="https://richoh86.github.io/moodcap-site/ko/">
+<link rel="alternate" hreflang="ko" href="https://richoh86.github.io/moodcap-site/ko/">
+<link rel="alternate" hreflang="en" href="https://richoh86.github.io/moodcap-site/">
+<link rel="alternate" hreflang="x-default" href="https://richoh86.github.io/moodcap-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MoodCap">
+<meta property="og:title" content="무드캡 — 속마음 카메라 일기">
+<meta property="og:description" content="찍기 전에 오늘의 분위기가 화면 위에 뜹니다. 남긴 카드는 폰 안에서만 쌓이고, 한 달이 지나면 색 팔레트 한 장이 돼요. 매일 무료, Apple Intelligence 아이폰은 기기에서 무제한.">
+<meta property="og:url" content="https://richoh86.github.io/moodcap-site/ko/">
+<meta property="og:image" content="https://richoh86.github.io/moodcap-site/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="무드캡 — 속마음 카메라 일기">
+<meta name="twitter:description" content="찍기 전에 오늘의 분위기가 화면 위에 뜹니다. 한 달이 지나면 색 팔레트 한 장이 돼요.">
+<meta name="twitter:image" content="https://richoh86.github.io/moodcap-site/assets/og.jpg">
+<meta name="theme-color" content="#14120F">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+  /* 브랜드 값은 Sources/App/BrandTheme.swift에서 가져왔습니다 —
+     ink #14120F, raised #221E19, subtitle yellow #F5C84B. */
+  :root {
+    color-scheme: dark light;
+    --ink: #14120F;
+    --raised: #221E19;
+    --line: rgba(255, 255, 255, 0.12);
+    --text: #ffffff;
+    --dim: rgba(255, 255, 255, 0.72);
+    --accent: #F5C84B;
+    --accent-ink: #14120F;
+    --link: #F5C84B;
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ink: #FBF8F3;
+      --raised: #FFFFFF;
+      --line: rgba(20, 18, 15, 0.14);
+      --text: #14120F;
+      --dim: #55503F;
+      --accent: #14120F;
+      --accent-ink: #F5C84B;
+      --link: #8A5B00;
+      --shadow: 0 14px 30px rgba(20, 18, 15, 0.14);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Pretendard", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+    overflow-wrap: break-word;
+    word-break: keep-all;
+  }
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--link); }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+
+  header.bar {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--ink);
+    z-index: 5;
+  }
+  .bar .wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 60px;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .langs { display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; }
+  .langs a { color: var(--dim); text-decoration: none; padding: 0.2rem 0.1rem; }
+  .langs a[aria-current="page"] { color: var(--text); font-weight: 600; }
+  .langs a:hover { color: var(--text); }
+
+  .store {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .store.big { padding: 0.85rem 1.6rem; font-size: 1.05rem; }
+  .store:hover { filter: brightness(1.08); }
+
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+  h1 { font-size: clamp(1.8rem, 4.2vw, 2.5rem); line-height: 1.25; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .kicker { color: var(--accent); font-weight: 600; margin: 0 0 0.75rem; }
+  .lede { color: var(--dim); font-size: 1.08rem; margin: 0 0 1.5rem; max-width: 34rem; }
+  .meta { color: var(--dim); font-size: 0.85rem; margin: 0.9rem 0 0; }
+  .hero-card img { border-radius: 20px; box-shadow: var(--shadow); margin: 0 auto; }
+
+  section { padding: 2.25rem 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.3rem; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
+  h3 { font-size: 1.05rem; margin: 0 0 0.4rem; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .three article {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.3rem;
+  }
+  .three p { color: var(--dim); margin: 0; font-size: 0.95rem; }
+  .step { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; }
+
+  @media (prefers-color-scheme: light) {
+    .kicker, .step { color: var(--link); }
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .gallery figure { margin: 0; }
+  .gallery img { border-radius: 16px; box-shadow: var(--shadow); width: 100%; }
+  .gallery figcaption {
+    color: var(--dim);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .note { color: var(--dim); font-size: 0.9rem; margin: 1.1rem 0 0; }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .facts div {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+  .facts p { color: var(--dim); margin: 0.35rem 0 0; font-size: 0.95rem; }
+  .cta { text-align: center; padding: 2.5rem 0 3rem; border-top: 1px solid var(--line); }
+  .cta p { color: var(--dim); margin: 0 0 1.25rem; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem 0 3rem;
+    color: var(--dim);
+    font-size: 0.85rem;
+  }
+  footer p { margin: 0.4rem 0; }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 1.75rem; padding-top: 2rem; }
+    .three { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr; }
+    .hero-card img { max-width: 260px; }
+  }
+  @media (max-width: 640px) {
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding-bottom: 0.75rem;
+    }
+    .gallery figure { flex: 0 0 62vw; scroll-snap-align: start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MOODCAP</a>
+    <nav class="langs" aria-label="언어">
+      <a href="../index.html" lang="en" hreflang="en">EN</a>
+      <span aria-hidden="true">·</span>
+      <a href="index.html" aria-current="page" lang="ko">한국어</a>
+    </nav>
+    <a class="store" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">App&nbsp;Store</a>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">찍기 전에 읽는 기분, 색으로 남는 하루</p>
+        <h1>무드캡 — 속마음 카메라 일기</h1>
+        <p class="lede">카메라를 켜는 순간 지금 이 분위기가 화면 위에 색과 숫자로 뜹니다.
+          셔터를 누르면 그 얼굴이 진짜 하고 있는 말을 한 줄로 써 주고, 그 카드를 폰 안에만
+          쌓아 한 달을 색 팔레트 한 장으로 만들어 줍니다.</p>
+        <a class="store big" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">App Store에서 받기</a>
+        <p class="meta">iPhone · iOS 17 이상 · 매일 무료 · 계정도, 가입도 없음</p>
+      </div>
+      <div class="hero-card">
+        <picture>
+          <source srcset="../assets/cards/ko/solo-1.webp" type="image/webp">
+          <img src="../assets/cards/ko/solo-1.jpg" width="540" height="960"
+               alt="무드캡 카드. 무드는 &lsquo;조용한 자신감&rsquo;, 문장은 &lsquo;이 조명이 절반은 해줬네. 뭐, 봐준다.&rsquo; 해시태그 #골든아워 #무념무상 #주인공, 에너지 60%.">
+        </picture>
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>사진 한 장이 오늘 하루가 되고, 서른 장이 이번 달이 됩니다.</h2>
+      <div class="three">
+        <article>
+          <p class="step">01</p>
+          <h3>라이브 분위기 카메라</h3>
+          <p>카메라를 들면 에너지 게이지가 차오르고 무드 색이 실시간으로 바뀝니다.
+            전부 기기 안에서 읽어요. 오토를 켜면 가장 좋은 순간에 무드캡이 알아서
+            셔터를 누릅니다. 타이밍 재지 않아도 됩니다.</p>
+        </article>
+        <article>
+          <p class="step">02</p>
+          <h3>카드</h3>
+          <p>그다음 AI가 그 표정이 진짜 하고 있는 생각을 한 줄로 씁니다. 스토리에 바로 올리는
+            9:16 카드에 오늘의 무드, 해시태그 3개, 에너지 점수까지. 오늘의 나, 반려동물,
+            그리고 우리 둘의 케미를 점수로.</p>
+        </article>
+        <article>
+          <p class="step">03</p>
+          <h3>무드 타임라인</h3>
+          <p>만든 카드는 전부 폰 안 비공개 일기에 저장됩니다. 한 달은 팔레트가 돼요.
+            하루에 색 한 칸씩, 한 달치 기분이 한 화면에 들어옵니다. 업로드는 없습니다.
+            타임라인은 폰 밖으로 나가지 않습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cards">
+    <div class="wrap">
+      <h2>앱에서 그대로 나온 진짜 카드</h2>
+      <div class="gallery">
+        <figure>
+          <picture>
+            <source srcset="../assets/cards/ko/solo-2.webp" type="image/webp">
+            <img loading="lazy" src="../assets/cards/ko/solo-2.jpg" width="540" height="960"
+                 alt="무드 &lsquo;대충 사는 주인공&rsquo;. &lsquo;하루 종일 아무것도 안 했는데 결과물이 이렇다.&rsquo;">
+          </picture>
+          <figcaption>오늘의 나</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="../assets/cards/ko/pet-1.webp" type="image/webp">
+            <img loading="lazy" src="../assets/cards/ko/pet-1.jpg" width="540" height="960"
+                 alt="무드 &lsquo;협상 중&rsquo;. &lsquo;앉았다. 간식은? 앉았다니까.&rsquo;">
+          </picture>
+          <figcaption>반려동물</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="../assets/cards/ko/duo-1.webp" type="image/webp">
+            <img loading="lazy" src="../assets/cards/ko/duo-1.jpg" width="540" height="960"
+                 alt="무드 &lsquo;공범&rsquo;. &lsquo;이 표정 연습까지 했는데 또 망했다.&rsquo; 케미 점수 70%.">
+          </picture>
+          <figcaption>우리 둘</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="../assets/cards/ko/pet-2.webp" type="image/webp">
+            <img loading="lazy" src="../assets/cards/ko/pet-2.jpg" width="540" height="960"
+                 alt="무드 &lsquo;프로 수면러&rsquo;. &lsquo;열네 시간 잤다. 오늘 아무것도 안 하려고.&rsquo;">
+          </picture>
+          <figcaption>반려동물</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="../assets/cards/ko/duo-2.webp" type="image/webp">
+            <img loading="lazy" src="../assets/cards/ko/duo-2.jpg" width="540" height="960"
+                 alt="무드 &lsquo;뇌는 하나, 얼굴은 둘&rsquo;. &lsquo;한 명이 웃기 시작했고, 이제 둘 다 못 멈춘다.&rsquo;">
+          </picture>
+          <figcaption>우리 둘</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="../assets/cards/ko/palette.webp" type="image/webp">
+            <img loading="lazy" src="../assets/cards/ko/palette.jpg" width="540" height="960"
+                 alt="2026년 8월 팔레트 카드. 카드 27장, 하루에 색 한 칸, 자주 나온 무드는 조용한 자신감·협상 중·공범, 평균 에너지 78%.">
+          </picture>
+          <figcaption>월간 팔레트</figcaption>
+        </figure>
+      </div>
+      <p class="note">문장이 뻔하지 않으니까요. 대충 묶은 머리, 오늘 세 번째 커피, 뭔가 잘못한 게
+        분명한 강아지 표정 &mdash; 사진에 실제로 있는 것만 읽고 씁니다. 자막 언어는 설정에서 39개 중에
+        고르고, 기본값은 폰 언어입니다.</p>
+    </div>
+  </section>
+
+  <section id="free">
+    <div class="wrap">
+      <h2>매일 무료, 그리고 기본이 비공개</h2>
+      <div class="facts">
+        <div>
+          <h3>클라우드 카드 매일 3장 무료</h3>
+          <p>설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요
+            (하루 3장까지). 같은 사진에서 두 번까지 공짜로 다시 뽑을 수 있고, 더 필요하면
+            30·100·300장 크레딧 팩이 있습니다. 계정도, 가입도 없어요.</p>
+        </div>
+        <div>
+          <h3>Apple Intelligence 아이폰은 기기에서 무제한</h3>
+          <p>Apple Intelligence를 지원하는 아이폰이라면 문장을 기기 안에서 직접 씁니다.
+            무제한 무료, 사진은 폰 밖으로 나가지 않습니다.</p>
+        </div>
+        <div>
+          <h3>사진은 저장하지 않습니다</h3>
+          <p>사진은 문장을 만드는 데만 보내고 서버에 저장하지 않습니다. 클라우드 사용은
+            직접 켜기 전까지 꺼져 있어요. <a href="../privacy.html" lang="en" hreflang="en">개인정보 처리방침(영문)</a>에서
+            확인하세요.</p>
+        </div>
+        <div>
+          <h3>타임라인은 폰 밖으로 나가지 않아요</h3>
+          <p>실시간 분위기 읽기, 일기, 기기에서 쓴 문장은 전부 아이폰 안에만 있습니다.
+            업로드도, 로그인할 것도 없습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap">
+      <p>찍기 전에, 오늘의 분위기부터.</p>
+      <a class="store big" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">App Store에서 받기</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="../support.html" lang="en" hreflang="en">지원(영문)</a> ·
+      <a href="../privacy.html" lang="en" hreflang="en">개인정보 처리방침(영문)</a> ·
+      <a href="../index.html" lang="en" hreflang="en">English</a> ·
+      © 2026 MoodCap. All rights reserved.</p>
+    <p>무드캡은 재미로 보는 앱입니다. 심리 검사나 의학적 진단이 아닙니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
