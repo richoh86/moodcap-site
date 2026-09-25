@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>무드캡 — 속마음 카메라 일기</title>
-<meta name="description" content="카메라를 켜는 순간 지금 이 분위기가 화면 위에 뜹니다. 무드캡은 그 얼굴이 진짜 하고 있는 말을 한 줄로 써 주고, 카드를 폰 안에만 쌓아 한 달을 색 팔레트 한 장으로 만들어 줍니다.">
+<meta name="description" content="카메라를 켜는 순간 지금 이 분위기가 화면 위에 뜹니다. 무드캡은 차마 입 밖으로 못 낸 속마음을 한 줄로 써 주고, 카드를 폰 안에만 쌓아 한 달을 색 팔레트 한 장으로 만들어 줍니다.">
 <link rel="canonical" href="https://richoh86.github.io/moodcap-site/ko/">
 <link rel="alternate" hreflang="ko" href="https://richoh86.github.io/moodcap-site/ko/">
 <link rel="alternate" hreflang="en" href="https://richoh86.github.io/moodcap-site/">
@@ -169,6 +169,8 @@
     padding: 1.1rem 1.2rem 1.2rem;
   }
   .facts p { color: var(--dim); margin: 0.35rem 0 0; font-size: 0.95rem; }
+  .faq { display: grid; gap: 1.25rem; max-width: 44rem; }
+  .faq p { color: var(--dim); margin: 0; font-size: 0.95rem; }
   .cta { text-align: center; padding: 2.5rem 0 3rem; border-top: 1px solid var(--line); }
   .cta p { color: var(--dim); margin: 0 0 1.25rem; }
 
@@ -197,6 +199,96 @@
     .gallery figure { flex: 0 0 62vw; scroll-snap-align: start; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "name": "무드캡 — 속마음 카메라 일기",
+      "operatingSystem": "iOS",
+      "applicationCategory": "PhotographyApplication",
+      "inLanguage": "ko",
+      "description": "카메라를 켜는 순간 지금 이 분위기가 화면 위에 뜹니다. 무드캡은 차마 입 밖으로 못 낸 속마음을 한 줄로 써 주고, 카드를 폰 안에만 쌓아 한 달을 색 팔레트 한 장으로 만들어 줍니다.",
+      "url": "https://apps.apple.com/app/id6801974284",
+      "downloadUrl": "https://apps.apple.com/app/id6801974284",
+      "image": "https://richoh86.github.io/moodcap-site/assets/icon-192.png",
+      "author": {
+        "@type": "Person",
+        "name": "Won Seok Oh"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ko",
+      "url": "https://richoh86.github.io/moodcap-site/ko/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "속마음 자막이 뭔가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "사진 속 표정, 소품, 분위기처럼 실제로 보이는 것만 읽고 그 순간의 속마음을 한 줄로 써 주는 기능이에요. 아무 사진에나 붙는 뻔한 문장이 아니라 그 사진에만 맞는 문장이 나옵니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "강아지, 고양이 사진도 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 반려동물이 주인공이면 그 눈빛 뒤의 속마음을 대신 말해 줍니다. 간식 앞에서 대체 무슨 생각 중인지 자막으로 확인해 보세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "무료인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "클라우드 자막은 매일 3장 무료이고, 설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요(하루 3장까지). Apple Intelligence를 지원하는 아이폰이라면 기기 안에서 무제한 무료입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "사진이 서버에 저장되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 사진은 문장을 만드는 순간에만 전송되고 서버에 저장하지 않습니다. 라이브 분위기 읽기와 무드 타임라인은 폰 밖으로 나가지 않아요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "커플이나 친구랑 같이 찍으면요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "두 사람의 분위기를 \"우리\" 시점의 한 줄로 써 주고, 케미 점수까지 같이 나옵니다. 친구, 커플, 가족 누구랑 찍어도 돼요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "무드 타임라인은 뭔가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "만든 카드가 전부 폰 안 비공개 일기로 쌓이고, 하루 한 칸씩 한 달이 색 팔레트 한 장이 됩니다. 마음에 드는 달은 팔레트 카드로 공유할 수 있어요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "심리 검사인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요, 재미로 보는 앱이에요. 심리 검사나 의학적 진단이 아닙니다. 자막 언어는 설정에서 39개 중에 고를 수 있어요."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -220,7 +312,7 @@
         <p class="kicker">찍기 전에 읽는 기분, 색으로 남는 하루</p>
         <h1>무드캡 — 속마음 카메라 일기</h1>
         <p class="lede">카메라를 켜는 순간 지금 이 분위기가 화면 위에 색과 숫자로 뜹니다.
-          셔터를 누르면 그 얼굴이 진짜 하고 있는 말을 한 줄로 써 주고, 그 카드를 폰 안에만
+          셔터를 누르면 차마 입 밖으로 못 낸 속마음을 한 줄로 써 주고, 그 카드를 폰 안에만
           쌓아 한 달을 색 팔레트 한 장으로 만들어 줍니다.</p>
         <a class="store big" href="https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&amp;ct=site&amp;mt=8">App Store에서 받기</a>
         <p class="meta">iPhone · iOS 17 이상 · 매일 무료 · 계정도, 가입도 없음</p>
@@ -249,7 +341,7 @@
         <article>
           <p class="step">02</p>
           <h3>카드</h3>
-          <p>그다음 AI가 그 표정이 진짜 하고 있는 생각을 한 줄로 씁니다. 스토리에 바로 올리는
+          <p>그다음 AI가 사진 속 분위기를 읽은 속마음 한 줄을 씁니다. 스토리에 바로 올리는
             9:16 카드에 오늘의 무드, 해시태그 3개, 에너지 점수까지. 오늘의 나, 반려동물,
             그리고 우리 둘의 케미를 점수로.</p>
         </article>
@@ -349,6 +441,42 @@
           <p>실시간 분위기 읽기, 일기, 기기에서 쓴 문장은 전부 아이폰 안에만 있습니다.
             업로드도, 로그인할 것도 없습니다.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq">
+        <article>
+          <h3>속마음 자막이 뭔가요?</h3>
+          <p>사진 속 표정, 소품, 분위기처럼 실제로 보이는 것만 읽고 그 순간의 속마음을 한 줄로 써 주는 기능이에요. 아무 사진에나 붙는 뻔한 문장이 아니라 그 사진에만 맞는 문장이 나옵니다.</p>
+        </article>
+        <article>
+          <h3>강아지, 고양이 사진도 되나요?</h3>
+          <p>네. 반려동물이 주인공이면 그 눈빛 뒤의 속마음을 대신 말해 줍니다. 간식 앞에서 대체 무슨 생각 중인지 자막으로 확인해 보세요.</p>
+        </article>
+        <article>
+          <h3>무료인가요?</h3>
+          <p>클라우드 자막은 매일 3장 무료이고, 설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요(하루 3장까지). Apple Intelligence를 지원하는 아이폰이라면 기기 안에서 무제한 무료입니다.</p>
+        </article>
+        <article>
+          <h3>사진이 서버에 저장되나요?</h3>
+          <p>아니요. 사진은 문장을 만드는 순간에만 전송되고 서버에 저장하지 않습니다. 라이브 분위기 읽기와 무드 타임라인은 폰 밖으로 나가지 않아요.</p>
+        </article>
+        <article>
+          <h3>커플이나 친구랑 같이 찍으면요?</h3>
+          <p>두 사람의 분위기를 "우리" 시점의 한 줄로 써 주고, 케미 점수까지 같이 나옵니다. 친구, 커플, 가족 누구랑 찍어도 돼요.</p>
+        </article>
+        <article>
+          <h3>무드 타임라인은 뭔가요?</h3>
+          <p>만든 카드가 전부 폰 안 비공개 일기로 쌓이고, 하루 한 칸씩 한 달이 색 팔레트 한 장이 됩니다. 마음에 드는 달은 팔레트 카드로 공유할 수 있어요.</p>
+        </article>
+        <article>
+          <h3>심리 검사인가요?</h3>
+          <p>아니요, 재미로 보는 앱이에요. 심리 검사나 의학적 진단이 아닙니다. 자막 언어는 설정에서 39개 중에 고를 수 있어요.</p>
+        </article>
       </div>
     </div>
   </section>
