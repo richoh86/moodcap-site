@@ -123,11 +123,12 @@
 <main>
   <div class="wrap">
 <h1>Privacy Policy</h1>
-<p class="sub">MoodCap: Vibe Camera &amp; Diary · Last updated 27 August 2026</p>
+<p class="sub">MoodCap: Vibe Camera &amp; Diary · Last updated 15 October 2026</p>
 <p class="lede"><strong>MoodCap keeps as much as it can on your device. Two things leave it, and only
-when you choose cloud captions: the photo you picked, sent once to write its caption and never
-stored; and an anonymous device code that keeps count of your free and purchased captions.
-Nothing is linked to your identity, and nothing is used for advertising or tracking.</strong></p>
+when you choose cloud captions: the photo you picked, sent once (with the profile you chose for
+it) to write its caption and never stored; and an anonymous device code that keeps count of your
+free and purchased captions and whether MoodCap Plus is active. Nothing is linked to your
+identity, and nothing is used for advertising or tracking.</strong></p>
 <h2>Two ways to write a caption</h2>
 <p><strong>On-device.</strong> On iPhones that support Apple Intelligence, captions can be written
 entirely on the phone. In that mode nothing is transmitted at all.</p>
@@ -140,21 +141,38 @@ retain API inputs briefly for abuse prevention under its
 train models. Our server runs on Cloudflare&rsquo;s infrastructure, which relays the request
 under its <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>. Finished cards
 are saved only where you choose (your photo library or the share sheet).</p>
+<h2>Profiles</h2>
+<p>A profile is the name, up to three traits and the short note you enter for yourself, a pet
+or the two of you. Profiles are stored on your device. When you make a cloud caption, the one
+profile that fits the photo (and the tone you picked) is sent to our server together with the
+photo, only to write the line. Like the photo, it is held in memory for that one request and
+is not stored on the server. With on-device captions, nothing is sent.</p>
 <h2>The device code and your caption balance</h2>
 <p>To count free captions and credit purchases without an account, the app generates a random
 code and stores it in the device keychain. Our server keeps, against that code only, how many
-captions you have used today, how many credits you hold, and the Apple transaction identifiers
-of packs you have bought (so a purchase is credited exactly once). The code is not your name,
+captions you have used today, how many credits you hold, the Apple transaction identifiers
+of packs you have bought (so a purchase is credited exactly once) and, if you subscribe to
+MoodCap Plus, the date your subscription expires. The code is not your name,
 email, Apple ID, advertising identifier or any hardware serial, and we have no way to connect it
 to you. No photo is ever stored with it.</p>
-<h2>Purchases</h2>
-<p>Caption packs are sold through Apple&rsquo;s in-app purchase system. Apple handles payment; we
-never see your payment details. The signed receipt Apple issues is sent to our server to add
-the credits to your balance.</p>
+<h2>Purchases and MoodCap Plus</h2>
+<p>The 30-caption pack and the MoodCap Plus subscription are sold through Apple&rsquo;s in-app
+purchase system. Apple processes every purchase and subscription, including free trials,
+renewals and cancellations; we never see your payment details. The signed receipt Apple issues
+is sent to our server, either to add a pack&rsquo;s credits to your balance or to confirm your
+Plus status. For Plus, our server stores only the subscription&rsquo;s expiry date, against the
+anonymous device code described above. You manage or cancel the subscription in your App Store
+account settings.</p>
 <h2>What stays on your device</h2>
-<p>Preferences, your cloud-caption choice and the last balance shown live in the app&rsquo;s own
-private storage and are removed when you delete the app. The device code in the keychain can
-survive reinstalling, which is what lets your purchased credits survive too.</p>
+<p>Preferences, your cloud-caption choice, your profiles and the last balance shown live in the
+app&rsquo;s own private storage and are removed when you delete the app.</p>
+<p><strong>Widget.</strong> So the Home Screen widget can show today&rsquo;s card, the app writes a
+small snapshot of it (a thumbnail, the line and the week&rsquo;s colours) to the app&rsquo;s shared
+container on your device. The widget reads it from there; nothing is uploaded.</p>
+<p><strong>Reminders.</strong> The daily reminder and the monthly recap note are local
+notifications scheduled on your device. No server is involved, and they stay off until you
+turn them on.</p>
+<p>The device code in the keychain can survive reinstalling, which is what lets your purchased credits survive too.</p>
 <h2>What the app does not do</h2>
 <ul>
   <li>No accounts, sign-in or registration</li>
@@ -174,6 +192,7 @@ version is released.</p>
 <footer>
   <div class="wrap">
     <p><a href="index.html">Home</a> · <a href="support.html">Support</a> ·
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a> ·
       © 2026 MoodCap. All rights reserved.</p>
     <p>MoodCap is for fun, not a psychological or medical assessment.</p>
   </div>
