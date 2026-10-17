@@ -169,6 +169,81 @@
     padding: 1.1rem 1.2rem 1.2rem;
   }
   .facts p { color: var(--dim); margin: 0.35rem 0 0; font-size: 0.95rem; }
+  .intro { color: var(--dim); margin: -0.5rem 0 1.25rem; max-width: 40rem; }
+
+  /* New in 1.1 */
+  .new { display: grid; gap: 1.25rem; }
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.25rem 1.3rem;
+  }
+  .feature p { color: var(--dim); margin: 0 0 0.6rem; font-size: 0.95rem; }
+  .feature p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0.05rem 0.5rem;
+    vertical-align: 0.12em;
+  }
+  .shots {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .shots figure { margin: 0; min-width: 0; }
+  .shots img { border-radius: 12px; box-shadow: var(--shadow); width: 100%; }
+  .shots figcaption { color: var(--dim); font-size: 0.8rem; margin-top: 0.4rem; text-align: center; }
+  .s-phone { flex: 0 1 200px; }
+  .s-card { flex: 0 1 108px; }
+  .s-wide { flex: 0 1 300px; }
+  .s-small { flex: 0 1 140px; }
+
+  /* MoodCap Plus */
+  .perks { color: var(--dim); padding-left: 1.15rem; margin: 0; }
+  .perks li { margin: 0.25rem 0; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
+  .plan {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.3rem;
+  }
+  .plan.best { border: 2px solid var(--accent); }
+  .plan p { color: var(--dim); margin: 0; font-size: 0.95rem; }
+  .plan ul { color: var(--dim); padding-left: 1.1rem; margin: 0.5rem 0 0; font-size: 0.92rem; }
+  .plan li { margin: 0.2rem 0; }
+  .plan .price { font-size: 1.55rem; font-weight: 700; color: var(--text); margin: 0.35rem 0 0.15rem; }
+  .plan .price small { font-size: 0.95rem; font-weight: 600; color: var(--dim); }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+    margin-left: 0.35rem;
+    vertical-align: 0.1em;
+  }
+  .fine { color: var(--dim); font-size: 0.8rem; margin: 0.9rem 0 0; max-width: 46rem; }
+
+  @media (prefers-color-scheme: light) {
+    .tag { color: var(--link); }
+  }
+
   .cta { text-align: center; padding: 2.5rem 0 3rem; border-top: 1px solid var(--line); }
   .cta p { color: var(--dim); margin: 0 0 1.25rem; }
 
@@ -184,6 +259,8 @@
     .hero .wrap { grid-template-columns: 1fr; gap: 1.75rem; padding-top: 2rem; }
     .three { grid-template-columns: 1fr; }
     .facts { grid-template-columns: 1fr; }
+    .feature { grid-template-columns: 1fr; }
+    .plans { grid-template-columns: 1fr; }
     .hero-card img { max-width: 260px; }
   }
   @media (max-width: 640px) {
@@ -323,6 +400,150 @@
     </div>
   </section>
 
+  <section id="new">
+    <div class="wrap">
+      <h2>New in 1.1</h2>
+      <p class="intro">The same live camera and the same private diary &mdash; now with more of you
+        in every card, more ways to keep it, and a reason to come back tomorrow.</p>
+      <div class="new">
+
+        <article class="feature">
+          <div>
+            <h3>Profiles and tones</h3>
+            <p>Tell MoodCap who is in the photo: you, up to three pets, or the two of you. Give
+              each one a name, three traits and a short note, and the line starts to sound like it
+              knows them.</p>
+            <p>Then pick how it talks: Tease or Warm, free &mdash; or Sharp and Poetic with
+              <span class="tag">PLUS</span>. Profiles stay on your iPhone; only the one that
+              fits the photo travels with it, to write the line.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-phone">
+              <picture>
+                <source srcset="assets/v11/home-profile-tone.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/home-profile-tone.jpg" width="440" height="956"
+                     alt="The MoodCap home screen. Under the mode switch, a profile chip reads Mochi, and a row of tones offers Tease, Warm, Sharp and Poetic, the last two marked Plus. Below, a card of a smiling woman in a hoodie reads &ldquo;This lighting is doing half the work and I'll allow it.&rdquo;">
+              </picture>
+              <figcaption>Profile chip and tone row</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <h3>Card styles, sizes and a sticker</h3>
+            <p>Three styles &mdash; Classic, Film and Minimal &mdash; each in 9:16, 4:5 or 1:1, so
+              the same moment fits a story, a feed post or a square.</p>
+            <p>Or export just the line as a transparent sticker and lay it over your own story.
+              Classic is free in every size; Film, Minimal and the sticker come with
+              <span class="tag">PLUS</span>.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-card">
+              <picture>
+                <source srcset="assets/v11/card-film-9x16.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/card-film-9x16.jpg" width="540" height="960"
+                     alt="A Film-style card in 9:16: a cream frame around a photo of a small, shaggy dog tilting its head, the mood &ldquo;negotiating&rdquo; above and the line &ldquo;I sat. Where is the treat. I sat.&rdquo; in Korean below.">
+              </picture>
+              <figcaption>Film · 9:16</figcaption>
+            </figure>
+            <figure class="s-card">
+              <picture>
+                <source srcset="assets/v11/card-minimal-9x16.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/card-minimal-9x16.jpg" width="540" height="960"
+                     alt="A Minimal-style card in 9:16: the same dog photo full-bleed, with only the line and a small MoodCap mark at the bottom.">
+              </picture>
+              <figcaption>Minimal · 9:16</figcaption>
+            </figure>
+            <figure class="s-card">
+              <picture>
+                <source srcset="assets/v11/card-film-4x5.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/card-film-4x5.jpg" width="540" height="675"
+                     alt="The Film-style card in 4:5, sized for a feed post.">
+              </picture>
+              <figcaption>Film · 4:5</figcaption>
+            </figure>
+            <figure class="s-card">
+              <picture>
+                <source srcset="assets/v11/card-minimal-1x1.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/card-minimal-1x1.jpg" width="540" height="540"
+                     alt="The Minimal-style card as a 1:1 square.">
+              </picture>
+              <figcaption>Minimal · 1:1</figcaption>
+            </figure>
+            <figure class="s-wide">
+              <picture>
+                <source srcset="assets/v11/sticker-classic.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/sticker-classic.jpg" width="720" height="409"
+                     alt="A line sticker: a dark rounded label with the mood chip &ldquo;negotiating&rdquo; and the line, shown over a grey background to stand for your own story.">
+              </picture>
+              <figcaption>Transparent line sticker</figcaption>
+            </figure>
+            <figure class="s-phone">
+              <picture>
+                <source srcset="assets/v11/result-style-picker.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/result-style-picker.jpg" width="440" height="956"
+                     alt="The finished card screen: the dog card with &ldquo;I sat. Where is the treat. I sat.&rdquo;, and under it a style picker with Classic selected, Film and Minimal locked, and the sizes 9:16, 4:5 and 1:1.">
+              </picture>
+              <figcaption>Pick a style and size after the shot</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <h3>A widget and a daily nudge</h3>
+            <p>Add a small or medium widget to your Home Screen and today&rsquo;s card, or the
+              week&rsquo;s palette, is there every time you unlock. No card yet? One tap opens the
+              camera.</p>
+            <p>A daily reminder is off until you turn it on. Pick the time and it nudges you once
+              a day &mdash; and stays quiet on days you have already made a card. Both are free.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-wide">
+              <picture>
+                <source srcset="assets/v11/widget-medium.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/widget-medium.jpg" width="720" height="374"
+                     alt="The medium widget: a thumbnail of today's dog card, the mood &ldquo;negotiating&rdquo;, the line, and a row of colour squares for this week.">
+              </picture>
+              <figcaption>Medium widget</figcaption>
+            </figure>
+            <figure class="s-small">
+              <picture>
+                <source srcset="assets/v11/widget-small.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/widget-small.jpg" width="360" height="360"
+                     alt="The small widget: today's dog photo with the mood chip and the line across the bottom.">
+              </picture>
+              <figcaption>Small widget</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <h3>Monthly recap</h3>
+            <p>On the first of the month, last month comes back as one poster: three
+              representative photos, your top moods, the month&rsquo;s palette and the average
+              energy.</p>
+            <p>Open it any time from the timeline. The recap is built on your phone from your own
+              diary; sharing the poster comes with <span class="tag">PLUS</span>.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-phone">
+              <picture>
+                <source srcset="assets/v11/recap.webp" type="image/webp">
+                <img loading="lazy" src="assets/v11/recap.jpg" width="540" height="960"
+                     alt="The monthly recap poster for September 2026: three photos (a dog, a smiling woman, two friends taking a selfie), the top moods quiet confidence, professionally asleep and unauthorized group photo, a grid of colour squares for each day, and average energy 64%.">
+              </picture>
+              <figcaption>Monthly recap poster</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <section id="free">
     <div class="wrap">
       <h2>Free every day, and private by default</h2>
@@ -330,8 +551,9 @@
         <div>
           <h3>Three cloud cards every day, free</h3>
           <p>Plus 10 welcome credits the moment you install. Every share you complete earns one
-            more, up to three a day, and a reroll is free twice on every photo. Want more?
-            Credit packs of 30, 100 or 300 are one tap away. No account, no sign-up.</p>
+            more, up to three a day, and a reroll is free twice on every photo. Want more? A
+            30-line pack is one tap away, or <a href="#plus">MoodCap Plus</a> for unlimited.
+            No account, no sign-up.</p>
         </div>
         <div>
           <h3>Unlimited on-device with Apple Intelligence</h3>
@@ -352,6 +574,54 @@
     </div>
   </section>
 
+  <section id="plus">
+    <div class="wrap">
+      <h2>MoodCap Plus, only if you want more</h2>
+      <p class="intro">An optional subscription for people who make a card most days. It adds:</p>
+      <ul class="perks">
+        <li>Unlimited cloud lines</li>
+        <li>All four tones: Tease, Warm, Sharp and Poetic</li>
+        <li>Every card style (Classic, Film, Minimal) in every size (9:16, 4:5, 1:1)</li>
+        <li>Transparent line stickers for your stories</li>
+        <li>The monthly recap poster</li>
+      </ul>
+      <div class="plans">
+        <div class="plan best">
+          <h3>Yearly <span class="badge">7-day free trial</span></h3>
+          <p class="price">$17.99 <small>/ year</small></p>
+          <p>Free for 7 days, then $17.99 a year. Cancel at least 24 hours before the trial ends and you pay
+            nothing.</p>
+        </div>
+        <div class="plan">
+          <h3>Monthly</h3>
+          <p class="price">$2.99 <small>/ month</small></p>
+          <p>Month to month, no trial. Cancel any time in your App Store account settings.</p>
+        </div>
+        <div class="plan">
+          <h3>Free, every day</h3>
+          <p class="price">$0</p>
+          <ul>
+            <li>3 cloud lines a day, plus 10 welcome credits</li>
+            <li>+1 for every completed share, up to 3 a day</li>
+            <li>2 free rerolls on every photo</li>
+            <li>Unlimited on-device with Apple Intelligence</li>
+            <li>Tease and Warm tones, Classic card in every size</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Just need a few more? One 30-line pack, $0.99, no subscription.
+        The diary, timeline, widget and reminders stay free &mdash; with or without Plus.</p>
+      <p class="fine">Prices shown in US dollars; your App Store shows the price for your
+        country. Payment is charged to your Apple Account at confirmation. The subscription
+        renews automatically unless cancelled at least 24 hours before the end of the current
+        period, and your account is charged for renewal within 24 hours before the period ends.
+        Manage or cancel any time in your App Store account settings. Any unused part of a free
+        trial is forfeited when you subscribe.
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use (EULA)</a> ·
+        <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </section>
+
   <div class="cta">
     <div class="wrap">
       <p>See the mood before you press the shutter.</p>
@@ -364,6 +634,7 @@
 <footer>
   <div class="wrap">
     <p><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a> ·
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a> ·
       <a href="ko/index.html" lang="ko" hreflang="ko">한국어</a> ·
       © 2026 MoodCap. All rights reserved.</p>
     <p>MoodCap is for fun, not a psychological or medical assessment.</p>

@@ -171,6 +171,81 @@
   .facts p { color: var(--dim); margin: 0.35rem 0 0; font-size: 0.95rem; }
   .faq { display: grid; gap: 1.25rem; max-width: 44rem; }
   .faq p { color: var(--dim); margin: 0; font-size: 0.95rem; }
+  .intro { color: var(--dim); margin: -0.5rem 0 1.25rem; max-width: 40rem; }
+
+  /* New in 1.1 */
+  .new { display: grid; gap: 1.25rem; }
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.25rem 1.3rem;
+  }
+  .feature p { color: var(--dim); margin: 0 0 0.6rem; font-size: 0.95rem; }
+  .feature p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0.05rem 0.5rem;
+    vertical-align: 0.12em;
+  }
+  .shots {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .shots figure { margin: 0; min-width: 0; }
+  .shots img { border-radius: 12px; box-shadow: var(--shadow); width: 100%; }
+  .shots figcaption { color: var(--dim); font-size: 0.8rem; margin-top: 0.4rem; text-align: center; }
+  .s-phone { flex: 0 1 200px; }
+  .s-card { flex: 0 1 108px; }
+  .s-wide { flex: 0 1 300px; }
+  .s-small { flex: 0 1 140px; }
+
+  /* MoodCap Plus */
+  .perks { color: var(--dim); padding-left: 1.15rem; margin: 0; }
+  .perks li { margin: 0.25rem 0; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
+  .plan {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.3rem;
+  }
+  .plan.best { border: 2px solid var(--accent); }
+  .plan p { color: var(--dim); margin: 0; font-size: 0.95rem; }
+  .plan ul { color: var(--dim); padding-left: 1.1rem; margin: 0.5rem 0 0; font-size: 0.92rem; }
+  .plan li { margin: 0.2rem 0; }
+  .plan .price { font-size: 1.55rem; font-weight: 700; color: var(--text); margin: 0.35rem 0 0.15rem; }
+  .plan .price small { font-size: 0.95rem; font-weight: 600; color: var(--dim); }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+    margin-left: 0.35rem;
+    vertical-align: 0.1em;
+  }
+  .fine { color: var(--dim); font-size: 0.8rem; margin: 0.9rem 0 0; max-width: 46rem; }
+
+  @media (prefers-color-scheme: light) {
+    .tag { color: var(--link); }
+  }
+
   .cta { text-align: center; padding: 2.5rem 0 3rem; border-top: 1px solid var(--line); }
   .cta p { color: var(--dim); margin: 0 0 1.25rem; }
 
@@ -186,6 +261,8 @@
     .hero .wrap { grid-template-columns: 1fr; gap: 1.75rem; padding-top: 2rem; }
     .three { grid-template-columns: 1fr; }
     .facts { grid-template-columns: 1fr; }
+    .feature { grid-template-columns: 1fr; }
+    .plans { grid-template-columns: 1fr; }
     .hero-card img { max-width: 260px; }
   }
   @media (max-width: 640px) {
@@ -249,7 +326,15 @@
           "name": "무료인가요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "클라우드 자막은 매일 3장 무료이고, 설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요(하루 3장까지). Apple Intelligence를 지원하는 아이폰이라면 기기 안에서 무제한 무료입니다."
+            "text": "클라우드 자막은 매일 3장 무료이고, 설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요(하루 3장까지). Apple Intelligence를 지원하는 아이폰이라면 기기 안에서 무제한 무료입니다. 일기·타임라인·위젯·알림도 계속 무료예요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "MoodCap Plus는 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "선택 구독이에요. 월 ₩5,500, 연 ₩29,000이고 연간에만 7일 무료 체험이 있어요. 클라우드 한 줄 무제한, 말투 4종(놀림·다정·독설·감성), 카드 스타일·비율 전부, 투명 문장 스티커, 월간 리캡 포스터가 열립니다. 구독 없이 30줄 팩(₩2,200)만 살 수도 있어요."
           }
         },
         {
@@ -415,6 +500,146 @@
     </div>
   </section>
 
+  <section id="new">
+    <div class="wrap">
+      <h2>1.1 새 기능</h2>
+      <p class="intro">라이브 카메라도, 비공개 일기도 그대로. 대신 카드에 내 얘기가 더 많이 담기고,
+        남기는 방법이 늘고, 내일 또 열어 볼 이유가 생겼습니다.</p>
+      <div class="new">
+
+        <article class="feature">
+          <div>
+            <h3>프로필과 말투</h3>
+            <p>사진 속 주인공을 무드캡에 알려 주세요. 나, 반려동물(최대 3마리), 우리 둘.
+              이름과 성격 3가지, 짧은 메모를 적어 두면 한 줄이 그 아이를 아는 말투로 나옵니다.</p>
+            <p>말하는 방식도 고를 수 있어요. 놀림·다정은 무료, 독설·감성은
+              <span class="tag">PLUS</span>. 프로필은 이 iPhone에만 저장되고, 사진에 맞는
+              프로필 하나만 한 줄을 쓰기 위해 사진과 함께 전송돼요.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-phone">
+              <picture>
+                <source srcset="../assets/v11/home-profile-tone.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/home-profile-tone.jpg" width="440" height="956"
+                     alt="무드캡 홈 화면. 모드 선택 옆에 &lsquo;Mochi&rsquo; 프로필 칩이 있고, 그 아래 말투 줄에 Tease·Warm·Sharp·Poetic이 있으며 뒤의 두 개에는 Plus 표시가 붙어 있다. 아래에는 후드티를 입고 웃는 여성의 카드가 보인다.">
+              </picture>
+              <figcaption>프로필 칩과 말투 줄</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <h3>카드 스타일·비율, 그리고 스티커</h3>
+            <p>클래식, 필름, 미니멀 세 가지 스타일을 9:16, 4:5, 1:1로. 같은 순간이 스토리에도,
+              피드에도, 정사각형에도 맞습니다.</p>
+            <p>문장만 투명 스티커로 뽑아 내 스토리 위에 얹을 수도 있어요. 클래식은 모든 비율이
+              무료, 필름·미니멀·스티커는 <span class="tag">PLUS</span>.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-card">
+              <picture>
+                <source srcset="../assets/v11/card-film-9x16.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/card-film-9x16.jpg" width="540" height="960"
+                     alt="필름 스타일 9:16 카드. 크림색 여백 안에 고개를 갸웃한 작은 강아지 사진, 위에는 무드 &lsquo;협상 중&rsquo;, 아래에는 &lsquo;앉았다. 간식은? 앉았다니까.&rsquo;와 해시태그.">
+              </picture>
+              <figcaption>필름 · 9:16</figcaption>
+            </figure>
+            <figure class="s-card">
+              <picture>
+                <source srcset="../assets/v11/card-minimal-9x16.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/card-minimal-9x16.jpg" width="540" height="960"
+                     alt="미니멀 스타일 9:16 카드. 같은 강아지 사진이 화면을 꽉 채우고, 아래에 문장 한 줄과 작은 MOODCAP 표시만 있다.">
+              </picture>
+              <figcaption>미니멀 · 9:16</figcaption>
+            </figure>
+            <figure class="s-card">
+              <picture>
+                <source srcset="../assets/v11/card-film-4x5.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/card-film-4x5.jpg" width="540" height="675"
+                     alt="피드 게시물 크기인 4:5 비율의 필름 스타일 카드.">
+              </picture>
+              <figcaption>필름 · 4:5</figcaption>
+            </figure>
+            <figure class="s-card">
+              <picture>
+                <source srcset="../assets/v11/card-minimal-1x1.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/card-minimal-1x1.jpg" width="540" height="540"
+                     alt="1:1 정사각형 미니멀 스타일 카드.">
+              </picture>
+              <figcaption>미니멀 · 1:1</figcaption>
+            </figure>
+            <figure class="s-wide">
+              <picture>
+                <source srcset="../assets/v11/sticker-classic.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/sticker-classic.jpg" width="720" height="409"
+                     alt="문장 스티커. 어두운 둥근 라벨에 무드 칩 &lsquo;협상 중&rsquo;과 &lsquo;앉았다. 간식은? 앉았다니까.&rsquo;가 적혀 있고, 내 스토리 대신 회색 배경 위에 놓여 있다.">
+              </picture>
+              <figcaption>투명 문장 스티커</figcaption>
+            </figure>
+            <figure class="s-phone">
+              <picture>
+                <source srcset="../assets/v11/result-style-picker.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/result-style-picker.jpg" width="440" height="956"
+                     alt="완성된 카드 화면. 강아지 카드 아래에 스타일 선택(Classic 선택됨, Film과 Minimal은 잠김)과 비율 9:16·4:5·1:1 선택이 있다.">
+              </picture>
+              <figcaption>찍은 뒤에 스타일과 비율 고르기</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <h3>위젯과 하루 알림</h3>
+            <p>홈 화면에 소형·중형 위젯을 두면 오늘의 카드나 이번 주 팔레트가 잠금을 풀 때마다
+              보입니다. 아직 카드가 없으면 탭 한 번에 카메라가 열려요.</p>
+            <p>하루 알림은 직접 켜기 전까지 꺼져 있어요. 시간을 고르면 하루 한 번, 이미 카드를
+              만든 날에는 조용히 건너뜁니다. 둘 다 무료예요.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-wide">
+              <picture>
+                <source srcset="../assets/v11/widget-medium.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/widget-medium.jpg" width="720" height="374"
+                     alt="중형 위젯. 오늘의 강아지 카드 썸네일, 무드 &lsquo;협상 중&rsquo;, 문장 한 줄, 그리고 이번 주 색 칸이 한 줄로 있다.">
+              </picture>
+              <figcaption>중형 위젯</figcaption>
+            </figure>
+            <figure class="s-small">
+              <picture>
+                <source srcset="../assets/v11/widget-small.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/widget-small.jpg" width="360" height="360"
+                     alt="소형 위젯. 오늘의 강아지 사진 위에 무드 칩과 문장 한 줄.">
+              </picture>
+              <figcaption>소형 위젯</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <h3>월간 리캡</h3>
+            <p>매월 1일, 지난달이 포스터 한 장으로 돌아옵니다. 대표 사진 3장, 자주 나온 기분,
+              그달의 팔레트, 평균 에너지까지.</p>
+            <p>타임라인에서 언제든 다시 열 수 있어요. 리캡은 폰 안의 내 일기로 만들어지고,
+              포스터 공유는 <span class="tag">PLUS</span>예요.</p>
+          </div>
+          <div class="shots">
+            <figure class="s-phone">
+              <picture>
+                <source srcset="../assets/v11/recap.webp" type="image/webp">
+                <img loading="lazy" src="../assets/v11/recap.jpg" width="540" height="960"
+                     alt="2026년 9월 월간 리캡 포스터. 대표 사진 3장(강아지, 웃는 여성, 셀카 찍는 두 친구), 자주 나온 기분 조용한 자신감·프로 수면러·무단 단체 사진, 날마다 색 한 칸씩의 팔레트, 에너지 64%.">
+              </picture>
+              <figcaption>월간 리캡 포스터</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <section id="free">
     <div class="wrap">
       <h2>매일 무료, 그리고 기본이 비공개</h2>
@@ -423,7 +648,8 @@
           <h3>클라우드 카드 매일 3장 무료</h3>
           <p>설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요
             (하루 3장까지). 같은 사진에서 두 번까지 공짜로 다시 뽑을 수 있고, 더 필요하면
-            30·100·300장 크레딧 팩이 있습니다. 계정도, 가입도 없어요.</p>
+            30장 팩 하나, 또는 무제한 <a href="#plus">MoodCap Plus</a>가 있습니다. 계정도,
+            가입도 없어요.</p>
         </div>
         <div>
           <h3>Apple Intelligence 아이폰은 기기에서 무제한</h3>
@@ -445,6 +671,66 @@
     </div>
   </section>
 
+  <section id="plus">
+    <div class="wrap">
+      <h2>MoodCap Plus, 더 쓰고 싶을 때만</h2>
+      <div class="feature">
+        <div>
+          <p>거의 매일 카드를 만드는 분을 위한 선택 구독이에요. 이런 게 열립니다.</p>
+          <ul class="perks">
+            <li>클라우드 한 줄 무제한</li>
+            <li>말투 4종 전부: 놀림·다정·독설·감성</li>
+            <li>모든 카드 스타일(클래식·필름·미니멀)과 비율(9:16·4:5·1:1)</li>
+            <li>스토리에 얹는 투명 문장 스티커</li>
+            <li>월간 리캡 포스터</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure class="s-phone">
+            <picture>
+              <source srcset="../assets/v11/paywall-ko.webp" type="image/webp">
+              <img loading="lazy" src="../assets/v11/paywall-ko.jpg" width="440" height="956"
+                   alt="앱 안의 MoodCap Plus 화면. 혜택 다섯 가지 아래에 연간(7일 무료 체험 후 ₩29,000/년, 7일 무료 배지)이 선택되어 있고, 월간 ₩5,500/월, 7일 무료 체험 시작 버튼, 구입 내역 복원, 30줄 팩 ₩2,200 옵션이 있다.">
+            </picture>
+            <figcaption>앱 안의 MoodCap Plus 화면</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="plans">
+        <div class="plan best">
+          <h3>연간 <span class="badge">7일 무료 체험</span></h3>
+          <p class="price">₩29,000 <small>/ 년</small></p>
+          <p>7일 동안 무료, 그다음 1년 ₩29,000. 체험이 끝나기 최소 24시간 전에 해지하면
+            요금이 나가지 않아요.</p>
+        </div>
+        <div class="plan">
+          <h3>월간</h3>
+          <p class="price">₩5,500 <small>/ 월</small></p>
+          <p>한 달 단위, 무료 체험 없음. App Store 계정 설정에서 언제든 해지할 수 있어요.</p>
+        </div>
+        <div class="plan">
+          <h3>매일 무료</h3>
+          <p class="price">₩0</p>
+          <ul>
+            <li>클라우드 한 줄 매일 3장 + 웰컴 크레딧 10장</li>
+            <li>공유를 마칠 때마다 +1 (하루 3장까지)</li>
+            <li>사진마다 다시 뽑기 2번 무료</li>
+            <li>Apple Intelligence 아이폰은 기기에서 무제한</li>
+            <li>놀림·다정 말투, 클래식 카드 모든 비율</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">조금만 더 필요하다면 30줄 팩 하나, ₩2,200, 구독 없이.
+        일기·타임라인·위젯·알림은 Plus 없이도 계속 무료예요.</p>
+      <p class="fine">결제 금액은 구매 확인 시 Apple 계정으로 청구됩니다. 구독은 현재 기간이 끝나기
+        최소 24시간 전에 취소하지 않으면 자동으로 갱신되며, 기간 종료 전 24시간 이내에 갱신 요금이
+        계정에 청구됩니다. 언제든지 App Store 계정 설정에서 구독을 관리하거나 취소할 수 있습니다.
+        무료 체험 기간 중 구독하면 남은 무료 체험 기간은 소멸됩니다.
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" lang="en" hreflang="en">이용약관(EULA, 영문)</a> ·
+        <a href="../privacy.html" lang="en" hreflang="en">개인정보 처리방침(영문)</a></p>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <h2>자주 묻는 질문</h2>
@@ -459,7 +745,11 @@
         </article>
         <article>
           <h3>무료인가요?</h3>
-          <p>클라우드 자막은 매일 3장 무료이고, 설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요(하루 3장까지). Apple Intelligence를 지원하는 아이폰이라면 기기 안에서 무제한 무료입니다.</p>
+          <p>클라우드 자막은 매일 3장 무료이고, 설치하면 웰컴 크레딧 10장을 바로 드려요. 공유를 마칠 때마다 1장씩 더 쌓이고요(하루 3장까지). Apple Intelligence를 지원하는 아이폰이라면 기기 안에서 무제한 무료입니다. 일기·타임라인·위젯·알림도 계속 무료예요.</p>
+        </article>
+        <article>
+          <h3>MoodCap Plus는 얼마인가요?</h3>
+          <p>선택 구독이에요. 월 ₩5,500, 연 ₩29,000이고 연간에만 7일 무료 체험이 있어요. 클라우드 한 줄 무제한, 말투 4종(놀림·다정·독설·감성), 카드 스타일·비율 전부, 투명 문장 스티커, 월간 리캡 포스터가 열립니다. 구독 없이 30줄 팩(₩2,200)만 살 수도 있어요.</p>
         </article>
         <article>
           <h3>사진이 서버에 저장되나요?</h3>
@@ -494,6 +784,7 @@
   <div class="wrap">
     <p><a href="../support.html" lang="en" hreflang="en">지원(영문)</a> ·
       <a href="../privacy.html" lang="en" hreflang="en">개인정보 처리방침(영문)</a> ·
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" lang="en" hreflang="en">이용약관(영문)</a> ·
       <a href="../index.html" lang="en" hreflang="en">English</a> ·
       © 2026 MoodCap. All rights reserved.</p>
     <p>무드캡은 재미로 보는 앱입니다. 심리 검사나 의학적 진단이 아닙니다.</p>
