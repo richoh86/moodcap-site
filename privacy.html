@@ -123,7 +123,7 @@
 <main>
   <div class="wrap">
 <h1>Privacy Policy</h1>
-<p class="sub">MoodCap: Vibe Camera &amp; Diary · Last updated 15 October 2026</p>
+<p class="sub">MoodCap: Vibe Camera &amp; Diary · Last updated 21 October 2026</p>
 <p class="lede"><strong>MoodCap keeps as much as it can on your device. Two things leave it, and only
 when you choose cloud captions: the photo you picked, sent once (with the profile you chose for
 it) to write its caption and never stored; and an anonymous device code that keeps count of your
@@ -173,10 +173,26 @@ container on your device. The widget reads it from there; nothing is uploaded.</
 notifications scheduled on your device. No server is involved, and they stay off until you
 turn them on.</p>
 <p>The device code in the keychain can survive reinstalling, which is what lets your purchased credits survive too.</p>
+<h2>Usage statistics</h2>
+<p>The app sends us anonymous usage statistics so we can see where people stop between opening
+the app and sharing a card, notice when purchases fail, and run small product experiments (for
+example, which caption model a new user is served first). What is sent is a list of event
+names &mdash; app opened, photo taken, caption written, card saved, share completed, paywall
+shown, purchase outcome &mdash; with a few small details such as the mode, the card style, an
+error code or a product price. <strong>Never a photo, a caption, journal text, a profile name
+or a note.</strong></p>
+<p>The events are tied to the same random device code described above, together with the app
+build number, your device&rsquo;s time zone, your preferred language and, from version 1.2.1,
+whether the build came from the App Store or TestFlight. They go to our own server (the one
+that writes captions), are kept there for 90 days and are then deleted. We use no third-party
+analytics SDK, no advertising network and no crash-reporting service.</p>
+<p>From version 1.2.1 you can switch this off at any time in Settings &rarr; <em>Send usage
+statistics</em>; the app then stops sending and deletes anything still queued on the device.
+Versions before 1.2.1 have no switch.</p>
 <h2>What the app does not do</h2>
 <ul>
   <li>No accounts, sign-in or registration</li>
-  <li>No analytics, telemetry or crash reporting</li>
+  <li>No third-party analytics, no telemetry SDKs and no crash reporting &mdash; only the first-party usage statistics described above, which you can turn off</li>
   <li>No advertising and no advertising identifiers</li>
   <li>No tracking, and no photo storage &mdash; captioning is the only time a photo is transmitted</li>
 </ul>
