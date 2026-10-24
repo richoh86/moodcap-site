@@ -52,3 +52,5 @@ the site can be told apart in App Analytics:
 ```
 https://apps.apple.com/app/apple-store/id6801974284?pt=119467638&ct=site&mt=8
 ```
+
+Current product images: assets/release-1.2.3/{en,ko}/, rendered or captured from release 1.2.3 build 27 with sample data. Old cards/v11 images have been removed.
