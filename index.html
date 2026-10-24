@@ -171,7 +171,7 @@
   .facts p { color: var(--dim); margin: 0.35rem 0 0; font-size: 0.95rem; }
   .intro { color: var(--dim); margin: -0.5rem 0 1.25rem; max-width: 40rem; }
 
-  /* New in 1.1 */
+  /* What's new */
   .new { display: grid; gap: 1.25rem; }
   .feature {
     display: grid;
@@ -185,6 +185,11 @@
   }
   .feature p { color: var(--dim); margin: 0 0 0.6rem; font-size: 0.95rem; }
   .feature p:last-child { margin-bottom: 0; }
+  .feature .step { color: var(--accent); margin: 0 0 0.35rem; font-size: 0.75rem; }
+  .feature .perks { font-size: 0.95rem; margin-bottom: 0.6rem; }
+  @media (prefers-color-scheme: light) {
+    .feature .step { color: var(--link); }
+  }
   .tag {
     display: inline-block;
     font-size: 0.72rem;
@@ -402,13 +407,53 @@
 
   <section id="new">
     <div class="wrap">
-      <h2>New in 1.1</h2>
-      <p class="intro">The same live camera and the same private diary &mdash; now with more of you
-        in every card, more ways to keep it, and a reason to come back tomorrow.</p>
+      <h2>What&rsquo;s new</h2>
+      <p class="intro">The same live camera and the same private diary &mdash; now with a line you can
+        dress up any way you like, more of you in every card, more ways to keep it, and a reason to
+        come back tomorrow.</p>
       <div class="new">
 
         <article class="feature">
           <div>
+            <p class="step">NEW IN 1.2</p>
+            <h3>Caption looks <span class="tag">FREE</span></h3>
+            <p>Make the line on your card look the way the moment feels. Six looks &mdash; Basic,
+              Note (torn paper), Tape (masking tape), Bubble, Highlighter and Outline &mdash; in a
+              handwritten face (Nanum Pen Script), a serif or a sans.</p>
+            <p>Swipe the line on the card to try the next look, or tap it for the full sheet. Drag
+              it anywhere on the photo and turn it a little with two fingers. The look you pick is the
+              one you share and save, and the one you see again in your diary, widget and recap.</p>
+          </div>
+          <div>
+            <ul class="perks">
+              <li>6 looks: Basic, Note, Tape, Bubble, Highlighter, Outline</li>
+              <li>3 typefaces: handwritten, serif, sans</li>
+              <li>5 paper and ink colours, one tinted automatically from your photo</li>
+              <li>Swipe to change, tap for the sheet, drag anywhere, two-finger rotate up to &plusmn;6&deg;</li>
+            </ul>
+            <p>Every look, typeface and colour is free for everyone. None of it needs
+              MoodCap Plus.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <p class="step">ALSO NEW &middot; 1.2.2</p>
+            <h3>Leave while it loads</h3>
+            <p>Switch away while a card is still being made and it keeps going. It lands in your
+              diary, and a banner on Home lets you know it is ready.</p>
+          </div>
+          <div>
+            <p class="step">ALSO NEW &middot; 1.2.1</p>
+            <h3>A switch for usage statistics</h3>
+            <p>Settings now has a &ldquo;Send usage statistics&rdquo; switch, and the
+              <a href="privacy.html">privacy policy</a> describes exactly what is sent.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div>
+            <p class="step">NEW IN 1.1</p>
             <h3>Profiles and tones</h3>
             <p>Tell MoodCap who is in the photo: you, up to three pets, or the two of you. Give
               each one a name, three traits and a short note, and the line starts to sound like it
@@ -431,6 +476,7 @@
 
         <article class="feature">
           <div>
+            <p class="step">NEW IN 1.1</p>
             <h3>Card styles, sizes and a sticker</h3>
             <p>Three styles &mdash; Classic, Film and Minimal &mdash; each in 9:16, 4:5 or 1:1, so
               the same moment fits a story, a feed post or a square.</p>
@@ -492,6 +538,7 @@
 
         <article class="feature">
           <div>
+            <p class="step">NEW IN 1.1</p>
             <h3>A widget and a daily nudge</h3>
             <p>Add a small or medium widget to your Home Screen and today&rsquo;s card, or the
               week&rsquo;s palette, is there every time you unlock. No card yet? One tap opens the
@@ -521,6 +568,7 @@
 
         <article class="feature">
           <div>
+            <p class="step">NEW IN 1.1</p>
             <h3>Monthly recap</h3>
             <p>On the first of the month, last month comes back as one poster: three
               representative photos, your top moods, the month&rsquo;s palette and the average
@@ -606,11 +654,13 @@
             <li>2 free rerolls on every photo</li>
             <li>Unlimited on-device with Apple Intelligence</li>
             <li>Tease and Warm tones, Classic card in every size</li>
+            <li>Every caption look, typeface and colour</li>
           </ul>
         </div>
       </div>
       <p class="note">Just need a few more? One 30-line pack, $0.99, no subscription.
-        The diary, timeline, widget and reminders stay free &mdash; with or without Plus.</p>
+        The diary, timeline, widget, reminders and every caption look stay free &mdash; with or
+        without Plus.</p>
       <p class="fine">Prices shown in US dollars; your App Store shows the price for your
         country. Payment is charged to your Apple Account at confirmation. The subscription
         renews automatically unless cancelled at least 24 hours before the end of the current
