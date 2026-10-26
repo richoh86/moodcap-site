@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>개인정보 처리방침 — PROJECT LINKFALL</title>
+<meta name="description" content="PROJECT LINKFALL 개인정보 처리방침: 기기 내 게임 데이터, 기본적으로 꺼져 있는 선택형 게임플레이 분석, 보관 기간과 선택권.">
+<meta name="color-scheme" content="dark">
+<link rel="alternate" hreflang="en" href="../privacy.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site">
+  <a class="brand" href="index.html">PROJECT LINKFALL</a>
+  <nav aria-label="사이트">
+    <ul>
+      <li><a href="index.html">홈</a></li>
+      <li><a href="support.html">지원</a></li>
+      <li><a href="privacy.html" aria-current="page">개인정보 처리방침</a></li>
+      <li><a href="../privacy.html" hreflang="en" lang="en">English</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+  <h1>개인정보 처리방침</h1>
+  <p class="meta">시행일: 2026년 10월 26일</p>
+  <p class="lede">이 방침은 iPhone 게임 PROJECT LINKFALL이 기기에 저장하는 정보, 사용자가 켰을 때 선택형 게임플레이 분석이 전송하는 정보, 그리고 그 정보의 보관 기간을 설명합니다.</p>
+
+  <div class="panel">
+    <p>PROJECT LINKFALL에는 계정, 광고, 인앱 구매가 없으며, 다른 회사의 앱이나 웹사이트에 걸친 추적을 하지 않습니다. 게임플레이 분석은 <strong>기본적으로 꺼져 있습니다</strong>. 분석 설정이 포함된 앱 버전에서, 사용자가 직접 켠 이후에만 전송됩니다.</p>
+  </div>
+
+  <h2 id="local">기기에 저장되는 정보</h2>
+  <p>게임은 설정, 진행 상황, 이어하기용 전투 상태, 그리고 분량이 제한된 게임플레이 진단 기록을 iPhone에 저장합니다. 이 파일들은 저희에게 전송되지 않으며, 계정이나 클라우드 저장 서비스가 아닙니다. 기기 자체의 백업 설정에 따라 게임과 별개로 앱 데이터가 백업될 수 있습니다.</p>
+
+  <h2 id="analytics">선택형 게임플레이 분석</h2>
+  <p>설정에서 분석을 켜면, 온보딩·난이도 균형·안정성·재방문을 개선하기 위해 게임이 제한된 게임플레이 이벤트를 전송합니다. 분석을 켜기 전에 기록된 내용은 업로드되지 않습니다.</p>
+
+  <h3>전송되는 정보</h3>
+  <ul class="plain">
+    <li>분석 참여 시작, 게임 내 온보딩 단계와 온보딩 완료</li>
+    <li>세션 시작, 그리고 시간 구간과 플레이 횟수 구간이 포함된 세션 종료</li>
+    <li>전투 시작과 종료: 섹터, 난이도, 장비, 결과, 도달한 웨이브, 시간 구간, 피격·LINK BREAK·일시정지 횟수 구간</li>
+    <li>웨이브 시작과 클리어, 보스 페이즈 시작과 클리어</li>
+    <li>격추 시 고정된 원인 분류 (예: 적 공격 유형)</li>
+    <li>재도전, 중단, 일시정지, 재개와 해당 웨이브 및 시간 구간</li>
+    <li>LINK BREAK 사용과 해당 웨이브</li>
+    <li>저장 또는 진행 상황 오류의 고정 오류 코드</li>
+    <li>변경된 설정 항목의 이름 (값은 전송하지 않음)</li>
+    <li>대략적인 재방문 정보: 분석을 켠 주(week), 그리고 약 1일 후 또는 7일 후 다시 사용했는지 여부</li>
+  </ul>
+  <p>모든 이벤트에는 분석 스키마 버전, 앱 버전과 빌드 번호, 배포 채널(TestFlight 또는 App Store), 그리고 해당 이벤트 하나를 위해 생성된 무작위 숫자가 함께 포함됩니다. 이 무작위 숫자는 같은 이벤트가 중복 전달된 경우 이를 걸러내는 데에만 사용됩니다. 이벤트마다 서로 관련 없는 새 숫자가 만들어지므로 설치, 기기 또는 세션을 식별하는 값이 아닙니다.</p>
+
+  <h3>전송되지 않는 정보</h3>
+  <p>분석에는 이름, 이메일 주소, 계정, 사진 등 개인 콘텐츠, 광고 식별자, 영구적인 설치·기기 식별자, 세션 식별자, 기기 모델, 위치, 언어·지역, 터치 위치, 정확한 이벤트 시각, 자유 입력 텍스트, 충돌 보고서가 포함되지 않습니다.</p>
+
+  <h3>전송되는 곳</h3>
+  <p>이벤트는 Cloudflare(Cloudflare Workers 및 D1)에서 운영되는 PROJECT LINKFALL 전용 분석 서비스로 전송됩니다. 분석 데이터베이스에는 이벤트를 받은 UTC 날짜와 주(week)만 기록되며, IP 주소, 사용자 에이전트 또는 기타 요청 헤더를 저장하는 항목이 없습니다. 이 서비스의 요청 로그 기록은 꺼져 있습니다.</p>
+  <p>다른 인터넷 서비스와 마찬가지로 Cloudflare는 트래픽을 전달하고 보호하기 위해 IP 주소 등 네트워크 정보를 처리합니다. 이 처리는 <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare 개인정보 처리방침</a>을 따르며, Cloudflare가 자체적으로 이러한 정보를 얼마나 보관하는지는 저희가 보장할 수 없습니다.</p>
+
+  <h3>이용 목적</h3>
+  <p>분석은 게임을 이해하고 개선하는 데에만 사용됩니다. 예를 들어 어느 웨이브가 지나치게 어려운지, 어떤 설정이 변경되는지, 저장 오류가 발생하는지를 파악합니다. 보고서는 묶음 합계로만 표시되며, 이벤트가 20건 미만인 묶음은 숨겨집니다. 재방문율은 분석을 켠 설치를 기준으로 한 추정치이며, 개인 수나 정확한 일일 사용자 수가 아닙니다. 분석 정보는 광고에 사용되지 않고, 판매되지 않으며, 다른 앱의 데이터와 결합되지 않습니다.</p>
+
+  <h2 id="retention">보관 기간</h2>
+  <div class="table-wrap">
+  <table>
+    <caption class="meta" style="text-align:left;caption-side:top;padding-bottom:0.4rem">선택형 분석 정보의 서버 보관 기간</caption>
+    <thead><tr><th scope="col">정보</th><th scope="col">보관 기간</th></tr></thead>
+    <tbody>
+      <tr><td>개별 이벤트</td><td>매일 실행되는 자동 작업이 이벤트를 주간 합계에 반영한 뒤, 받은 지 30일이 지난 이벤트를 삭제합니다.</td></tr>
+      <tr><td>이벤트별 무작위 숫자와 일일 수신량 집계</td><td>같은 일일 작업이 30일 후 삭제합니다.</td></tr>
+      <tr><td>주간 합계</td><td>해당 주가 시작된 지 180일이 지나면 삭제합니다.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>일일 작업이 지연되면 다음에 정상 실행될 때 삭제됩니다. Cloudflare의 데이터베이스 복구 기능은 이 서비스가 사용하는 요금제에서 이전 데이터베이스 상태를 최대 7일 동안 추가로 보관할 수 있으며, 그 이후에는 더 이상 사용할 수 없습니다.</p>
+
+  <h2 id="choices">사용자의 선택</h2>
+  <ul class="plain">
+    <li>분석은 설정에서 직접 켜기 전까지 꺼져 있습니다.</li>
+    <li>분석을 끄면 이후 전송이 중단되고, 기기에서 전송을 기다리던 이벤트가 삭제됩니다.</li>
+    <li>설치 식별자를 전송하지 않기 때문에, 이미 받은 이벤트 중 어떤 것이 사용자의 기기에서 왔는지 찾을 수 없어 개별 삭제가 불가능합니다. 해당 이벤트는 위의 보관 기간에 따라 삭제됩니다.</li>
+  </ul>
+
+  <h2 id="test-builds">테스트 빌드</h2>
+  <p>개발용 빌드와 자동화 테스트는 분석을 전송하지 않습니다. TestFlight 베타 빌드의 이벤트는 App Store 이벤트와 분리하여 저장됩니다.</p>
+
+  <h2 id="ads">광고, 구매, 추적</h2>
+  <p>PROJECT LINKFALL에는 광고, 인앱 구매, 제3자 분석·광고 SDK가 없습니다. 광고 식별자를 사용하지 않으며, 다른 회사의 앱이나 웹사이트에 걸쳐 사용자를 추적하지 않습니다. 이 내용이 바뀌는 경우, 변경 사항이 배포되기 전에 이 방침을 업데이트합니다.</p>
+
+  <h2 id="support">지원 이메일과 이 웹사이트</h2>
+  <p>지원 이메일을 보내시면, 답변을 위해 메시지와 사용자가 포함한 정보를 사용합니다. 이 웹사이트는 GitHub Pages에서 호스팅되며, GitHub는 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 일반 개인정보 보호정책</a>에 따라 방문 요청을 처리합니다. 이 페이지에는 분석 스크립트, 추적 쿠키, 외부 글꼴이 추가되어 있지 않습니다.</p>
+
+  <h2 id="changes">방침 변경</h2>
+  <p>게임의 정보 처리 방식이 바뀌면 이 페이지와 시행일을 업데이트합니다. 새로운 종류의 분석 데이터는 이 방침을 먼저 업데이트하지 않고는 수집하지 않습니다.</p>
+
+  <h2 id="contact">문의</h2>
+  <p>개인정보 관련 문의: <a href="mailto:richohios@gmail.com">richohios@gmail.com</a></p>
+</main>
+<footer class="site">
+  <p>PROJECT LINKFALL · <a href="index.html">홈</a> · <a href="support.html">지원</a> · <a href="../privacy.html" hreflang="en" lang="en">English</a></p>
+</footer>
+</body>
+</html>
